@@ -1,9 +1,9 @@
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), ".")))
 
 import streamlit as st
-from app.ranker import rank_resumes
+from ranker import rank_resumes
 import shutil
 from dotenv import load_dotenv
 load_dotenv()
@@ -22,7 +22,6 @@ st.set_page_config(page_title="AI Resume Matcher Advanced", layout="wide")
 # ---------- Custom CSS Styling ----------
 st.markdown("""
     <style>
-    /* Custom font and background */
     html, body, [class*="css"]  {
         font-family: 'Segoe UI', sans-serif;
         background-color: #f9fafe;
@@ -46,15 +45,17 @@ st.markdown("""
         color: white;
     }
     .stTextArea textarea {
-        background-color: #000 !important; color: #fff !important;
+        background-color: #000 !important;
+        color: #fff !important;
         border: 1px solid #ccc;
         border-radius: 6px;
     }
-    .css-1kyxreq, .css-1n76uvr, .css-1v3fvcr { 
-        padding-top: 0px !important; 
-    }
     footer {
-        visibility: hidden;
+        visibility: visible;
+        text-align: center;
+        padding: 20px;
+        font-size: 12px;
+        color: #888;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -93,7 +94,7 @@ if page == "Home":
 
         st.subheader("📍 Job Description Preview")
         if uploaded_jd and jd_ext == "pdf":
-            from app.utils.pdf_parser import extract_text_from_pdf
+            from pdf_parser import extract_text_from_pdf
             jd_text = extract_text_from_pdf(jd_path)
         elif uploaded_jd and jd_ext == "txt":
             with open(jd_path, 'r', encoding='utf-8') as f:
@@ -190,7 +191,6 @@ elif page == "Project Details":
     - **Framework:** Streamlit
     - **Libraries:** Pandas, Matplotlib, Seaborn, Spacy
     - **Optional:** OpenAI for GPT-4 suggestions (if API is enabled)
-
     """)
 
 elif page == "About Me":
@@ -199,10 +199,19 @@ elif page == "About Me":
     **Gautam Kumar**  
     Roll No: 231212013  
     Email: 231212013@nitdelhi.ac.in  
+    GitHub: [Gautam-kumar9](https://github.com/Gautam-kumar9)  
     College: National Institute of Technology Delhi  
-    
+
     This project was built with ❤️ for learning and innovation.
-    
+
     ---
     © 2025 Gautam Kumar. All rights reserved.
     """)
+
+# Footer
+st.markdown("""
+    <hr>
+    <footer>
+        © 2025 Gautam Kumar. All rights reserved.
+    </footer>
+""", unsafe_allow_html=True)
