@@ -1,7 +1,7 @@
 import os
 import pandas as pd
-from app.utils.pdf_parser import extract_text_from_pdf, extract_name
-from app.matcher import compute_similarity, extract_skills
+from pdf_parser import extract_text_from_pdf, extract_name
+from matcher import compute_similarity, extract_skills
 
 def extract_jd_text(jd_path):
     if jd_path.endswith('.txt'):
