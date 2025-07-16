@@ -21,6 +21,7 @@ The AI Resume Matcher & Skill Advisor is a smart recruitment assistant that help
 🎨 Clean, responsive UI built using Streamlit
 
 🗃️ No database needed — lightweight and file-based
+<img width="1823" height="811" alt="image" src="https://github.com/user-attachments/assets/38a27343-cdf0-402a-9802-6ad3f9fa0c5d" />
 
 🖥️ Demo
 👉 Click here to try the live demo
